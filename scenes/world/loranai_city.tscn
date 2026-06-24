@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://b2loranai01"]
+
+[ext_resource type="Script" path="res://scripts/core/camera_hd2d.gd" id="1_cam"]
+[ext_resource type="Script" path="res://scripts/world/world_player.gd" id="2_player"]
+[ext_resource type="Script" path="res://scripts/world/npc.gd" id="3_npc"]
+[ext_resource type="Script" path="res://scripts/world/cave_exit.gd" id="4_exit"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ground"]
+size = Vector2(60, 60)
+
+[sub_resource type="StandardMaterial3D" id="Mat_ground"]
+albedo_color = Color(0.45, 0.62, 0.35, 1)
+roughness = 0.85
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_path"]
+size = Vector2(8, 30)
+
+[sub_resource type="StandardMaterial3D" id="Mat_path"]
+albedo_color = Color(0.7, 0.6, 0.4, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="Box_player"]
+size = Vector3(0.6, 1.0, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="Mat_player"]
+albedo_color = Color(0.85, 0.65, 0.3, 1)
+roughness = 0.7
+
+[sub_resource type="CylinderMesh" id="Cyl_npc"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Mat_npc_tc"]
+albedo_color = Color(0.4, 0.3, 0.6, 1)
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="Mat_npc_inn"]
+albedo_color = Color(0.5, 0.5, 0.7, 1)
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="Mat_exit"]
+albedo_color = Color(0.3, 0.6, 0.3, 1)
+emission_enabled = true
+emission = Color(0.2, 0.8, 0.3, 1)
+emission_energy_multiplier = 0.5
+
+[node name="LoranaiCity" type="Node3D"]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_ground")
+surface_material_override/0 = SubResource("Mat_ground")
+
+[node name="Path" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 5)
+mesh = SubResource("PlaneMesh_path")
+surface_material_override/0 = SubResource("Mat_path")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866, -0.354, 0.354, 0, 0.707, 0.707, -0.5, -0.612, 0.612, 0, 12, 0)
+light_energy = 1.0
+shadow_enabled = true
+
+[node name="Player" type="Node3D" parent="."]
+script = ExtResource("2_player")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+bounds_min = Vector2(-25, -25)
+bounds_max = Vector2(25, 25)
+
+[node name="Avatar" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("Box_player")
+surface_material_override/0 = SubResource("Mat_player")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.643, 0.766, 0, -0.766, 0.643, 0, 12, 16)
+script = ExtResource("1_cam")
+height = 12.0
+distance = 16.0
+angle_deg = 50.0
+follow_speed = 6.0
+
+[node name="NPC_TownChief" type="Node3D" parent="." groups=["npc"]]
+script = ExtResource("3_npc")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, -3)
+npc_id = "town_chief"
+dialogue_id = "npc_town_chief_intro"
+event_id = ""
+
+[node name="Avatar" type="MeshInstance3D" parent="NPC_TownChief"]
+mesh = SubResource("Cyl_npc")
+surface_material_override/0 = SubResource("Mat_npc_tc")
+
+[node name="NPC_InnKeeper" type="Node3D" parent="." groups=["npc"]]
+script = ExtResource("3_npc")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, 6)
+npc_id = "inn_keeper"
+dialogue_id = ""
+event_id = ""
+
+[node name="Avatar" type="MeshInstance3D" parent="NPC_InnKeeper"]
+mesh = SubResource("Cyl_npc")
+surface_material_override/0 = SubResource("Mat_npc_inn")
+
+[node name="CaveExit" type="Node3D" parent="." groups=["exit"]]
+script = ExtResource("4_exit")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.5, 18)
+target_scene = "res://scenes/world/starting_cave.tscn"
+
+[node name="Marker" type="MeshInstance3D" parent="CaveExit"]
+mesh = SubResource("Cyl_npc")
+surface_material_override/0 = SubResource("Mat_exit")

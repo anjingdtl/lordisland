@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=3 uid="uid://b2cave01"]
+
+[ext_resource type="Script" path="res://scripts/core/camera_hd2d.gd" id="1_cam"]
+[ext_resource type="Script" path="res://scripts/world/world_player.gd" id="2_player"]
+[ext_resource type="Script" path="res://scripts/world/cave_entry.gd" id="3_entry"]
+[ext_resource type="Script" path="res://scripts/world/battle_trigger.gd" id="4_battle"]
+[ext_resource type="Script" path="res://scripts/world/npc.gd" id="5_npc"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cave_floor"]
+size = Vector2(80, 80)
+
+[sub_resource type="StandardMaterial3D" id="Mat_cave_floor"]
+albedo_color = Color(0.35, 0.3, 0.25, 1)
+roughness = 0.95
+
+[sub_resource type="BoxMesh" id="Box_player"]
+size = Vector3(0.6, 1.0, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="Mat_player"]
+albedo_color = Color(0.85, 0.65, 0.3, 1)
+roughness = 0.7
+
+[sub_resource type="CylinderMesh" id="Cyl_marker"]
+top_radius = 0.4
+bottom_radius = 0.4
+height = 0.8
+
+[node name="StartingCave" type="Node3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_cave_floor")
+surface_material_override/0 = SubResource("Mat_cave_floor")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866, -0.354, 0.354, 0, 0.707, 0.707, -0.5, -0.612, 0.612, 0, 12, 0)
+light_energy = 0.4
+light_color = Color(0.7, 0.8, 1.0, 1)
+shadow_enabled = true
+
+[node name="Player" type="Node3D" parent="."]
+script = ExtResource("2_player")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+bounds_min = Vector2(-35, -35)
+bounds_max = Vector2(35, 35)
+
+[node name="Avatar" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("Box_player")
+surface_material_override/0 = SubResource("Mat_player")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.643, 0.766, 0, -0.766, 0.643, 0, 12, 16)
+script = ExtResource("1_cam")
+height = 12.0
+distance = 16.0
+angle_deg = 50.0
+follow_speed = 6.0
+
+[node name="CaveEntry" type="Node3D" parent="." groups=["exit"]]
+script = ExtResource("3_entry")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -30)
+target_scene = "res://scenes/world/loranai_city.tscn"
+
+[node name="Marker" type="MeshInstance3D" parent="CaveEntry"]
+mesh = SubResource("Cyl_marker")
+
+[node name="Battle1" type="Node3D" parent="." groups=["exit"]]
+script = ExtResource("4_battle")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.5, -10)
+enemies = ["goblin", "goblin"]
+one_shot = true
+trigger_flag = "cave_battle1_cleared"
+
+[node name="Marker" type="MeshInstance3D" parent="Battle1"]
+mesh = SubResource("Cyl_marker")
+
+[node name="Battle2_Boss" type="Node3D" parent="." groups=["exit"]]
+script = ExtResource("4_battle")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 20)
+enemies = ["orc"]
+one_shot = true
+trigger_flag = "cave_boss_defeated"
+is_boss = true
+event_id = "ch0_rescue_ehto"
+
+[node name="Marker" type="MeshInstance3D" parent="Battle2_Boss"]
+mesh = SubResource("Cyl_marker")
+
+[node name="EhtoNPC" type="Node3D" parent="." groups=["npc"]]
+script = ExtResource("5_npc")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, 20)
+npc_id = "npc_ehto"
+dialogue_id = "npc_ehto_intro"
+event_id = "ch0_rescue_ehto"
+
+[node name="Avatar" type="MeshInstance3D" parent="EhtoNPC"]
+mesh = SubResource("Cyl_marker")
