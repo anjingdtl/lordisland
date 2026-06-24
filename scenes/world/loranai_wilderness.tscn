@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/world/chest.gd" id="7_chest"]
 [ext_resource type="Script" path="res://scripts/world/forest_decorator.gd" id="8_forest"]
 [ext_resource type="Script" path="res://scripts/world/bgm_player.gd" id="9_bgm"]
+[ext_resource type="Script" path="res://scripts/world/world_environment.gd" id="10_env"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ground"]
 size = Vector2(60, 60)
@@ -29,6 +30,10 @@ roughness = 0.7
 [node name="BGM" type="Node" parent="."]
 script = ExtResource("9_bgm")
 music = "forest"
+
+[node name="WorldEnv" type="Node3D" parent="."]
+script = ExtResource("10_env")
+scene_type = "forest"
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_ground")

@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/world/npc.gd" id="5_npc"]
 [ext_resource type="Script" path="res://scripts/world/sprite3d_actor.gd" id="6_sprite"]
 [ext_resource type="Script" path="res://scripts/world/bgm_player.gd" id="7_bgm"]
+[ext_resource type="Script" path="res://scripts/world/world_environment.gd" id="8_env"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cave_floor"]
 size = Vector2(80, 80)
@@ -20,6 +21,10 @@ roughness = 0.95
 [node name="BGM" type="Node" parent="."]
 script = ExtResource("7_bgm")
 music = "cave"
+
+[node name="WorldEnv" type="Node3D" parent="."]
+script = ExtResource("8_env")
+scene_type = "cave"
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_cave_floor")
