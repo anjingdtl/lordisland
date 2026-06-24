@@ -28,24 +28,33 @@ func _build_visual() -> void:
 		child.queue_free()
 	sprite = null
 	anim = null
-	# 默认数据
-	var data = sprite_data
-	if data.is_empty():
-		data = {"body_color": "#888888", "hair_color": "#444444", "skin_color": "#cccccc", "armor_color": "#888888", "weapon": "none"}
-	# 生成 sprite
-	var gen = SpriteGenerator.new()
-	var tex = gen.generate_walk_strip(data)
+	# 优先加载 asset，否则用程序化
+	var tex: ImageTexture = null
+	if actor_id != "":
+		var asset_path = AssetLoader.sprite_data_to_path(actor_id)
+		tex = AssetLoader.get_texture(asset_path)
+	# fallback 程序化
+	if tex == null:
+		var data = sprite_data
+		if data.is_empty():
+			data = {"body_color": "#888888", "hair_color": "#444444", "skin_color": "#cccccc", "armor_color": "#888888", "weapon": "none"}
+		var gen = SpriteGenerator.new()
+		tex = gen.generate_walk_strip(data)
 	# 创建 Sprite3D
 	sprite = Sprite3D.new()
 	sprite.texture = tex
 	sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	sprite.pixel_size = pixel_size
-	sprite.position.y = 0.7  # 中心点抬到地面以上
+	sprite.position.y = 0.7
 	sprite.centered = true
-	sprite.hframes = 4  # 4 帧
+	# 检测贴图是否多帧（宽 > 高 2x 表示是 sprite strip）
+	if tex.get_width() > tex.get_height() * 1.5:
+		sprite.hframes = max(1, tex.get_width() / tex.get_height())
+	else:
+		sprite.hframes = 1
 	add_child(sprite)
 	# 动画
-	if use_walk_animation:
+	if use_walk_animation and sprite.hframes > 1:
 		_setup_animation()
 	# 阴影
 	_add_shadow()
