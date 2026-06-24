@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b2cave01"]
+[gd_scene load_steps=7 format=3 uid="uid://b2cave01"]
 
 [ext_resource type="Script" path="res://scripts/core/camera_hd2d.gd" id="1_cam"]
 [ext_resource type="Script" path="res://scripts/world/world_player.gd" id="2_player"]
 [ext_resource type="Script" path="res://scripts/world/cave_entry.gd" id="3_entry"]
 [ext_resource type="Script" path="res://scripts/world/battle_trigger.gd" id="4_battle"]
 [ext_resource type="Script" path="res://scripts/world/npc.gd" id="5_npc"]
+[ext_resource type="Script" path="res://scripts/world/sprite3d_actor.gd" id="6_sprite"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cave_floor"]
 size = Vector2(80, 80)
@@ -12,18 +13,6 @@ size = Vector2(80, 80)
 [sub_resource type="StandardMaterial3D" id="Mat_cave_floor"]
 albedo_color = Color(0.35, 0.3, 0.25, 1)
 roughness = 0.95
-
-[sub_resource type="BoxMesh" id="Box_player"]
-size = Vector3(0.6, 1.0, 0.6)
-
-[sub_resource type="StandardMaterial3D" id="Mat_player"]
-albedo_color = Color(0.85, 0.65, 0.3, 1)
-roughness = 0.7
-
-[sub_resource type="CylinderMesh" id="Cyl_marker"]
-top_radius = 0.4
-bottom_radius = 0.4
-height = 0.8
 
 [node name="StartingCave" type="Node3D"]
 
@@ -43,9 +32,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 bounds_min = Vector2(-35, -35)
 bounds_max = Vector2(35, 35)
 
-[node name="Avatar" type="MeshInstance3D" parent="Player"]
-mesh = SubResource("Box_player")
-surface_material_override/0 = SubResource("Mat_player")
+[node name="Avatar" type="Node3D" parent="Player"]
+script = ExtResource("6_sprite")
+actor_id = "parn"
+sprite_data = {
+"body_color": "#2a4d8f",
+"hair_color": "#f0c419",
+"skin_color": "#fbcb8a",
+"armor_color": "#cccccc",
+"weapon": "sword",
+"outline_color": "#1a1a1a"
+}
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.643, 0.766, 0, -0.766, 0.643, 0, 12, 16)
@@ -60,8 +57,18 @@ script = ExtResource("3_entry")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -30)
 target_scene = "res://scenes/world/loranai_city.tscn"
 
-[node name="Marker" type="MeshInstance3D" parent="CaveEntry"]
-mesh = SubResource("Cyl_marker")
+[node name="Marker" type="Node3D" parent="CaveEntry"]
+script = ExtResource("6_sprite")
+actor_id = "cave_exit"
+use_walk_animation = false
+sprite_data = {
+"body_color": "#3d2a1a",
+"hair_color": "#1a1a1a",
+"skin_color": "#1a1a1a",
+"armor_color": "#1a1a1a",
+"weapon": "none",
+"outline_color": "#000000"
+}
 
 [node name="Battle1" type="Node3D" parent="." groups=["exit"]]
 script = ExtResource("4_battle")
@@ -70,8 +77,17 @@ enemies = ["goblin", "goblin"]
 one_shot = true
 trigger_flag = "cave_battle1_cleared"
 
-[node name="Marker" type="MeshInstance3D" parent="Battle1"]
-mesh = SubResource("Cyl_marker")
+[node name="Marker" type="Node3D" parent="Battle1"]
+script = ExtResource("6_sprite")
+actor_id = "goblin"
+sprite_data = {
+"body_color": "#3d6e3d",
+"hair_color": "#1a2a1a",
+"skin_color": "#8aac5c",
+"armor_color": "#3d6e3d",
+"weapon": "club",
+"outline_color": "#1a2a1a"
+}
 
 [node name="Battle2_Boss" type="Node3D" parent="." groups=["exit"]]
 script = ExtResource("4_battle")
@@ -82,8 +98,17 @@ trigger_flag = "cave_boss_defeated"
 is_boss = true
 event_id = "ch0_rescue_ehto"
 
-[node name="Marker" type="MeshInstance3D" parent="Battle2_Boss"]
-mesh = SubResource("Cyl_marker")
+[node name="Marker" type="Node3D" parent="Battle2_Boss"]
+script = ExtResource("6_sprite")
+actor_id = "orc"
+sprite_data = {
+"body_color": "#5a3a2a",
+"hair_color": "#1a1a1a",
+"skin_color": "#8a6b3d",
+"armor_color": "#5a3a2a",
+"weapon": "club",
+"outline_color": "#1a1a1a"
+}
 
 [node name="EhtoNPC" type="Node3D" parent="." groups=["npc"]]
 script = ExtResource("5_npc")
@@ -92,5 +117,15 @@ npc_id = "npc_ehto"
 dialogue_id = "npc_ehto_intro"
 event_id = "ch0_rescue_ehto"
 
-[node name="Avatar" type="MeshInstance3D" parent="EhtoNPC"]
-mesh = SubResource("Cyl_marker")
+[node name="Avatar" type="Node3D" parent="EhtoNPC"]
+script = ExtResource("6_sprite")
+actor_id = "ehto"
+use_walk_animation = false
+sprite_data = {
+"body_color": "#6b3d8f",
+"hair_color": "#5a3a2a",
+"skin_color": "#f5d0b0",
+"armor_color": "#d4a574",
+"weapon": "staff",
+"outline_color": "#1a1a1a"
+}
