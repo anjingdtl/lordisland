@@ -1,0 +1,16 @@
+{
+  "id": "parn",
+  "name_key": "char_parn_name",
+  "level": 3,
+  "hp": 120,
+  "max_hp": 120,
+  "mp": 25,
+  "max_mp": 25,
+  "str": 14,
+  "agi": 11,
+  "int": 8,
+  "vit": 12,
+  "cha": 14,
+  "skills": ["attack", "light_sword"],
+  "sprite": "res://assets/sprites/characters/parn.png"
+}

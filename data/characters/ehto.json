@@ -1,0 +1,16 @@
+{
+  "id": "ehto",
+  "name_key": "char_ehto_name",
+  "level": 3,
+  "hp": 80,
+  "max_hp": 80,
+  "mp": 40,
+  "max_mp": 40,
+  "str": 7,
+  "agi": 9,
+  "int": 14,
+  "vit": 9,
+  "cha": 13,
+  "skills": ["attack", "heal", "bless"],
+  "sprite": "res://assets/sprites/characters/ehto.png"
+}

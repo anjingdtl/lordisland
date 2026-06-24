@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2lordislandbattle01"]
+
+[ext_resource type="Script" path="res://scripts/systems/battle_controller.gd" id="1_battle"]
+[ext_resource type="Script" path="res://scripts/ui/battle_ui.gd" id="2_ui"]
+
+[node name="BattleScene" type="Node"]
+
+[node name="BattleController" type="Node" parent="."]
+script = ExtResource("1_battle")
+
+[node name="BattleUI" type="Control" parent="."]
+set_anchors_preset = 15
+script = ExtResource("2_ui")

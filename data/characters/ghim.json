@@ -1,0 +1,16 @@
+{
+  "id": "ghim",
+  "name_key": "char_ghim_name",
+  "level": 4,
+  "hp": 130,
+  "max_hp": 130,
+  "mp": 10,
+  "max_mp": 10,
+  "str": 15,
+  "agi": 6,
+  "int": 5,
+  "vit": 14,
+  "cha": 9,
+  "skills": ["attack", "smash", "fortify"],
+  "sprite": "res://assets/sprites/characters/ghim.png"
+}

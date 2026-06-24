@@ -1,0 +1,16 @@
+{
+  "id": "tike",
+  "name_key": "char_tike_name",
+  "level": 2,
+  "hp": 70,
+  "max_hp": 70,
+  "mp": 15,
+  "max_mp": 15,
+  "str": 9,
+  "agi": 14,
+  "int": 7,
+  "vit": 7,
+  "cha": 10,
+  "skills": ["attack", "double_shot"],
+  "sprite": "res://assets/sprites/characters/tike.png"
+}

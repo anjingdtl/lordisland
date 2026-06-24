@@ -1,0 +1,62 @@
+{
+  "goblin": {
+    "id": "goblin",
+    "name_key": "enemy_goblin",
+    "level": 1,
+    "hp": 30,
+    "mp": 0,
+    "str": 6,
+    "agi": 8,
+    "int": 2,
+    "vit": 5,
+    "cha": 1,
+    "skills": ["attack"],
+    "exp_reward": 8,
+    "sprite": "res://assets/sprites/enemies/goblin.png"
+  },
+  "orc": {
+    "id": "orc",
+    "name_key": "enemy_orc",
+    "level": 3,
+    "hp": 80,
+    "mp": 0,
+    "str": 12,
+    "agi": 5,
+    "int": 3,
+    "vit": 9,
+    "cha": 1,
+    "skills": ["attack", "smash"],
+    "exp_reward": 30,
+    "sprite": "res://assets/sprites/enemies/orc.png"
+  },
+  "goblin_archer": {
+    "id": "goblin_archer",
+    "name_key": "enemy_goblin_archer",
+    "level": 2,
+    "hp": 22,
+    "mp": 0,
+    "str": 7,
+    "agi": 11,
+    "int": 2,
+    "vit": 4,
+    "cha": 1,
+    "skills": ["attack"],
+    "exp_reward": 12,
+    "sprite": "res://assets/sprites/enemies/goblin_archer.png"
+  },
+  "kobold": {
+    "id": "kobold",
+    "name_key": "enemy_kobold",
+    "level": 2,
+    "hp": 35,
+    "mp": 0,
+    "str": 8,
+    "agi": 10,
+    "int": 3,
+    "vit": 5,
+    "cha": 1,
+    "skills": ["attack"],
+    "exp_reward": 14,
+    "sprite": "res://assets/sprites/enemies/kobold.png"
+  }
+}

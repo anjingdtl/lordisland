@@ -1,0 +1,94 @@
+{
+  "attack": {
+    "id": "attack",
+    "name_key": "skill_attack",
+    "type": "physical",
+    "target": "single_enemy",
+    "stat": "str",
+    "coeff": 1.0,
+    "mp_cost": 0,
+    "description_key": "skill_attack_desc"
+  },
+  "light_sword": {
+    "id": "light_sword",
+    "name_key": "skill_light_sword",
+    "type": "physical",
+    "target": "single_enemy",
+    "stat": "str",
+    "coeff": 2.0,
+    "crit_boost": 0.3,
+    "mp_cost": 5,
+    "description_key": "skill_light_sword_desc"
+  },
+  "smash": {
+    "id": "smash",
+    "name_key": "skill_smash",
+    "type": "physical",
+    "target": "single_enemy",
+    "stat": "str",
+    "coeff": 1.5,
+    "mp_cost": 0,
+    "description_key": "skill_smash_desc"
+  },
+  "fortify": {
+    "id": "fortify",
+    "name_key": "skill_fortify",
+    "type": "buff",
+    "target": "self",
+    "stat_buff": {"vit": 5},
+    "duration": 3,
+    "mp_cost": 3,
+    "description_key": "skill_fortify_desc"
+  },
+  "double_shot": {
+    "id": "double_shot",
+    "name_key": "skill_double_shot",
+    "type": "physical",
+    "target": "single_enemy",
+    "stat": "agi",
+    "coeff": 1.3,
+    "hits": 2,
+    "mp_cost": 4,
+    "description_key": "skill_double_shot_desc"
+  },
+  "fireball": {
+    "id": "fireball",
+    "name_key": "skill_fireball",
+    "type": "magical",
+    "target": "single_enemy",
+    "stat": "int",
+    "coeff": 2.0,
+    "mp_cost": 6,
+    "description_key": "skill_fireball_desc"
+  },
+  "ice_shard": {
+    "id": "ice_shard",
+    "name_key": "skill_ice_shard",
+    "type": "magical",
+    "target": "single_enemy",
+    "stat": "int",
+    "coeff": 1.5,
+    "mp_cost": 4,
+    "description_key": "skill_ice_shard_desc"
+  },
+  "heal": {
+    "id": "heal",
+    "name_key": "skill_heal",
+    "type": "heal",
+    "target": "single_ally",
+    "stat": "int",
+    "coeff": 1.5,
+    "mp_cost": 4,
+    "description_key": "skill_heal_desc"
+  },
+  "bless": {
+    "id": "bless",
+    "name_key": "skill_bless",
+    "type": "buff",
+    "target": "single_ally",
+    "stat_buff": {"str": 3, "vit": 3},
+    "duration": 3,
+    "mp_cost": 5,
+    "description_key": "skill_bless_desc"
+  }
+}
