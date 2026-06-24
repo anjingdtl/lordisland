@@ -1,0 +1,13 @@
+{
+  "id": "ch0_recruit_tike",
+  "trigger": "on_talk",
+  "key": "npc_tike",
+  "conditions": [
+    {"type": "flag", "key": "wilderness_battle_a_cleared", "value": true}
+  ],
+  "steps": [
+    {"type": "show_dialogue", "id": "npc_tike_join"},
+    {"type": "join_party", "character": "tike"},
+    {"type": "set_flag", "key": "tike_joined", "value": true}
+  ]
+}

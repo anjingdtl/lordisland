@@ -217,3 +217,87 @@ msgstr "小心，勇者。"
 
 msgid "chest_heal_potion_msg"
 msgstr "你获得了 治疗药水 x1！"
+
+# === M2.2 Party Join ===
+msgid "npc_slayn_join"
+msgstr "你打败了那些哥布林！谢谢你，勇者。\n我决定加入你的队伍，一起调查森林的异动。"
+
+msgid "npc_tike_join"
+msgstr "你救了我的朋友！太感谢了。\n我，蒂特，愿意成为你的伙伴。让我们一起冒险吧。"
+
+# === M2.3 Items / Shop ===
+msgid "item_heal_potion"
+msgstr "治疗药水"
+
+msgid "item_heal_potion_desc"
+msgstr "恢复 30 HP"
+
+msgid "item_mana_potion"
+msgstr "魔法药水"
+
+msgid "item_mana_potion_desc"
+msgstr "恢复 20 MP"
+
+msgid "item_antidote"
+msgstr "解毒药"
+
+msgid "item_antidote_desc"
+msgstr "解除中毒状态"
+
+msgid "item_iron_sword"
+msgstr "铁剑"
+
+msgid "item_iron_sword_desc"
+msgstr "STR +5"
+
+msgid "item_leather_armor"
+msgstr "皮甲"
+
+msgid "item_leather_armor_desc"
+msgstr "VIT +3"
+
+msgid "shop_title"
+msgstr "商店"
+
+msgid "shop_buy"
+msgstr "购买"
+
+msgid "shop_sell"
+msgstr "出售"
+
+msgid "shop_leave"
+msgstr "离开"
+
+msgid "shop_gold"
+msgstr "金币: %d"
+
+msgid "shop_purchase_ok"
+msgstr "购买了 %s！"
+
+msgid "shop_purchase_fail"
+msgstr "金币不足！"
+
+msgid "shop_sell_ok"
+msgstr "出售了 %s，获得 %d 金币"
+
+msgid "ui_heal_potion"
+msgstr "使用治疗药水 (HP+30)"
+
+# === M2.4 Side Quests ===
+msgid "quest_goblin_hunt_name"
+msgstr "哥布林猎手"
+
+msgid "quest_goblin_hunt_desc"
+msgstr "村长：森林里哥布林太多了，请帮我们清理 5 只。"
+
+msgid "quest_lost_sword_name"
+msgstr "遗失的铁剑"
+
+msgid "quest_lost_sword_desc"
+msgstr "旅店老板：我的铁剑不见了，你能帮我找回来吗？"
+
+msgid "quest_meet_three_name"
+msgstr "结识队友"
+
+msgid "quest_meet_three_desc"
+msgstr "斯雷因：冒险前多认识些朋友。和艾特、蒂特、斯雷因都聊聊。"

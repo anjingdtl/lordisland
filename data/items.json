@@ -1,0 +1,47 @@
+{
+  "heal_potion": {
+    "id": "heal_potion",
+    "name_key": "item_heal_potion",
+    "desc_key": "item_heal_potion_desc",
+    "price": 50,
+    "type": "consumable",
+    "effect": "heal_hp",
+    "amount": 30
+  },
+  "mana_potion": {
+    "id": "mana_potion",
+    "name_key": "item_mana_potion",
+    "desc_key": "item_mana_potion_desc",
+    "price": 80,
+    "type": "consumable",
+    "effect": "heal_mp",
+    "amount": 20
+  },
+  "antidote": {
+    "id": "antidote",
+    "name_key": "item_antidote",
+    "desc_key": "item_antidote_desc",
+    "price": 30,
+    "type": "consumable",
+    "effect": "cure_poison",
+    "amount": 0
+  },
+  "iron_sword": {
+    "id": "iron_sword",
+    "name_key": "item_iron_sword",
+    "desc_key": "item_iron_sword_desc",
+    "price": 200,
+    "type": "weapon",
+    "stat": "str",
+    "amount": 5
+  },
+  "leather_armor": {
+    "id": "leather_armor",
+    "name_key": "item_leather_armor",
+    "desc_key": "item_leather_armor_desc",
+    "price": 250,
+    "type": "armor",
+    "stat": "vit",
+    "amount": 3
+  }
+}

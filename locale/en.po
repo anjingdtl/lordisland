@@ -217,3 +217,87 @@ msgstr "Be careful, brave one."
 
 msgid "chest_heal_potion_msg"
 msgstr "You obtained a Healing Potion x1!"
+
+# === M2.2 Party Join ===
+msgid "npc_slayn_join"
+msgstr "You defeated those goblins! Thank you, brave one.\nI shall join your party and help investigate the forest's disturbances."
+
+msgid "npc_tike_join"
+msgstr "You saved my friend! Thank you so much.\nI, Tike, will be your companion. Let us adventure together."
+
+# === M2.3 Items / Shop ===
+msgid "item_heal_potion"
+msgstr "Healing Potion"
+
+msgid "item_heal_potion_desc"
+msgstr "Restores 30 HP"
+
+msgid "item_mana_potion"
+msgstr "Mana Potion"
+
+msgid "item_mana_potion_desc"
+msgstr "Restores 20 MP"
+
+msgid "item_antidote"
+msgstr "Antidote"
+
+msgid "item_antidote_desc"
+msgstr "Cures poison"
+
+msgid "item_iron_sword"
+msgstr "Iron Sword"
+
+msgid "item_iron_sword_desc"
+msgstr "STR +5"
+
+msgid "item_leather_armor"
+msgstr "Leather Armor"
+
+msgid "item_leather_armor_desc"
+msgstr "VIT +3"
+
+msgid "shop_title"
+msgstr "Shop"
+
+msgid "shop_buy"
+msgstr "Buy"
+
+msgid "shop_sell"
+msgstr "Sell"
+
+msgid "shop_leave"
+msgstr "Leave"
+
+msgid "shop_gold"
+msgstr "Gold: %d"
+
+msgid "shop_purchase_ok"
+msgstr "Purchased %s!"
+
+msgid "shop_purchase_fail"
+msgstr "Not enough gold!"
+
+msgid "shop_sell_ok"
+msgstr "Sold %s for %d gold"
+
+msgid "ui_heal_potion"
+msgstr "Use Healing Potion (HP+30)"
+
+# === M2.4 Side Quests ===
+msgid "quest_goblin_hunt_name"
+msgstr "Goblin Hunter"
+
+msgid "quest_goblin_hunt_desc"
+msgstr "Chief: Too many goblins in the forest. Please help us clear 5 of them."
+
+msgid "quest_lost_sword_name"
+msgstr "Lost Iron Sword"
+
+msgid "quest_lost_sword_desc"
+msgstr "Innkeeper: My iron sword is missing. Can you find it for me?"
+
+msgid "quest_meet_three_name"
+msgstr "Meet the Companions"
+
+msgid "quest_meet_three_desc"
+msgstr "Slayn: Make friends before adventuring. Talk to Ehto, Tike, and Slayn."

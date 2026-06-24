@@ -1,0 +1,13 @@
+{
+  "id": "ch0_recruit_slayn",
+  "trigger": "on_talk",
+  "key": "npc_slayn",
+  "conditions": [
+    {"type": "flag", "key": "wilderness_battle_b_cleared", "value": true}
+  ],
+  "steps": [
+    {"type": "show_dialogue", "id": "npc_slayn_join"},
+    {"type": "join_party", "character": "slayn"},
+    {"type": "set_flag", "key": "slayn_joined", "value": true}
+  ]
+}

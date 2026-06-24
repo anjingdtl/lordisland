@@ -1,0 +1,40 @@
+{
+  "quest_goblin_hunt": {
+    "id": "quest_goblin_hunt",
+    "name_key": "quest_goblin_hunt_name",
+    "desc_key": "quest_goblin_hunt_desc",
+    "giver": "npc_town_chief",
+    "objectives": [
+      {"type": "kill", "target": "goblin", "count": 5, "flag": "quest_goblin_hunt_progress"}
+    ],
+    "reward_gold": 100,
+    "reward_exp": 50,
+    "complete_flag": "quest_goblin_hunt_done"
+  },
+  "quest_lost_sword": {
+    "id": "quest_lost_sword",
+    "name_key": "quest_lost_sword_name",
+    "desc_key": "quest_lost_sword_desc",
+    "giver": "npc_inn_keeper",
+    "objectives": [
+      {"type": "find", "item": "iron_sword", "flag": "quest_lost_sword_found"}
+    ],
+    "reward_gold": 50,
+    "reward_exp": 20,
+    "complete_flag": "quest_lost_sword_done"
+  },
+  "quest_meet_three": {
+    "id": "quest_meet_three",
+    "name_key": "quest_meet_three_name",
+    "desc_key": "quest_meet_three_desc",
+    "giver": "npc_slayn",
+    "objectives": [
+      {"type": "talk", "target": "npc_slayn", "flag": "quest_met_slayn"},
+      {"type": "talk", "target": "npc_tike", "flag": "quest_met_tike"},
+      {"type": "talk", "target": "npc_ehto", "flag": "quest_met_ehto"}
+    ],
+    "reward_gold": 30,
+    "reward_exp": 10,
+    "complete_flag": "quest_meet_three_done"
+  }
+}

@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/world/sprite3d_actor.gd" id="6_sprite"]
 [ext_resource type="Script" path="res://scripts/world/chest.gd" id="7_chest"]
 [ext_resource type="Script" path="res://scripts/world/forest_decorator.gd" id="8_forest"]
+[ext_resource type="Script" path="res://scripts/world/bgm_player.gd" id="9_bgm"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ground"]
 size = Vector2(60, 60)
@@ -24,6 +25,10 @@ albedo_color = Color(0.5, 0.3, 0.6, 1)
 roughness = 0.7
 
 [node name="LoranaiWilderness" type="Node3D"]
+
+[node name="BGM" type="Node" parent="."]
+script = ExtResource("9_bgm")
+music = "forest"
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_ground")

@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/world/battle_trigger.gd" id="4_battle"]
 [ext_resource type="Script" path="res://scripts/world/npc.gd" id="5_npc"]
 [ext_resource type="Script" path="res://scripts/world/sprite3d_actor.gd" id="6_sprite"]
+[ext_resource type="Script" path="res://scripts/world/bgm_player.gd" id="7_bgm"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cave_floor"]
 size = Vector2(80, 80)
@@ -15,6 +16,10 @@ albedo_color = Color(0.35, 0.3, 0.25, 1)
 roughness = 0.95
 
 [node name="StartingCave" type="Node3D"]
+
+[node name="BGM" type="Node" parent="."]
+script = ExtResource("7_bgm")
+music = "cave"
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_cave_floor")

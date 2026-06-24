@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://scripts/world/npc.gd" id="3_npc"]
 [ext_resource type="Script" path="res://scripts/world/cave_exit.gd" id="4_exit"]
 [ext_resource type="Script" path="res://scripts/world/sprite3d_actor.gd" id="5_sprite"]
+[ext_resource type="Script" path="res://scripts/world/bgm_player.gd" id="6_bgm"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ground"]
 size = Vector2(60, 60)
@@ -21,6 +22,10 @@ albedo_color = Color(0.7, 0.6, 0.4, 1)
 roughness = 0.9
 
 [node name="LoranaiCity" type="Node3D"]
+
+[node name="BGM" type="Node" parent="."]
+script = ExtResource("6_bgm")
+music = "town"
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_ground")

@@ -1,0 +1,11 @@
+{
+  "id": "npc_tike_join",
+  "speaker": "npc_tike",
+  "start": "start",
+  "nodes": {
+    "start": {
+      "text_key": "npc_tike_join",
+      "is_end": true
+    }
+  }
+}

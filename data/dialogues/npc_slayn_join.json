@@ -1,0 +1,11 @@
+{
+  "id": "npc_slayn_join",
+  "speaker": "npc_slayn",
+  "start": "start",
+  "nodes": {
+    "start": {
+      "text_key": "npc_slayn_join",
+      "is_end": true
+    }
+  }
+}
