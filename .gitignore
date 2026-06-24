@@ -1,4 +1,6 @@
 .godot/
+.godot_user/
+.godot_cache/
 *.translation
 addons/*/demo/
 .superpowers/
