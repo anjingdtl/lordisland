@@ -58,3 +58,7 @@ func get_size() -> int:
 
 func is_empty() -> bool:
 	return members.is_empty()
+
+func reset() -> void:
+	members.clear()
+	party_data.clear()
