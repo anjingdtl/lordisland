@@ -1,0 +1,34 @@
+{
+  "id": "npc_tike_meet",
+  "speaker": "npc_tike",
+  "start": "start",
+  "nodes": {
+    "start": {
+      "text_key": "npc_tike_meet",
+      "next": "ask"
+    },
+    "ask": {
+      "choices": [
+        {"text": "1", "next": "rescue"},
+        {"text": "2", "next": "dangerous"},
+        {"text": "3", "next": "why_not_you"}
+      ]
+    },
+    "rescue": {
+      "text_key": "tike_ask_rescue",
+      "next": "end"
+    },
+    "dangerous": {
+      "text_key": "tike_ask_dangerous",
+      "next": "end"
+    },
+    "why_not_you": {
+      "text_key": "tike_ask_why_not_you",
+      "next": "end"
+    },
+    "end": {
+      "text_key": "npc_tike_leave",
+      "is_end": true
+    }
+  }
+}

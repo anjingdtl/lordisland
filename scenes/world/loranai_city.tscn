@@ -119,3 +119,21 @@ sprite_data = {
 "weapon": "none",
 "outline_color": "#000000"
 }
+
+[node name="WildernessExit" type="Node3D" parent="." groups=["exit"]]
+script = ExtResource("4_exit")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.5, 22)
+target_scene = "res://scenes/world/loranai_wilderness.tscn"
+
+[node name="Marker" type="Node3D" parent="WildernessExit"]
+script = ExtResource("5_sprite")
+actor_id = "wilderness_gate"
+use_walk_animation = false
+sprite_data = {
+"body_color": "#3a5a3a",
+"hair_color": "#1a1a1a",
+"skin_color": "#1a1a1a",
+"armor_color": "#1a1a1a",
+"weapon": "none",
+"outline_color": "#000000"
+}

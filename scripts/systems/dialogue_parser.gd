@@ -22,9 +22,16 @@ func _init(data: Dictionary) -> void:
 	id = data.get("id", "")
 	speaker = data.get("speaker", "")
 	portrait = data.get("portrait", "")
-	for n in data.get("nodes", []):
-		if n.has("id"):
-			nodes[n["id"]] = n
+	var raw_nodes = data.get("nodes", [])
+	if raw_nodes is Array:
+		# 旧格式: [{id: "x", ...}, ...]
+		for n in raw_nodes:
+			if n.has("id"):
+				nodes[n["id"]] = n
+	elif raw_nodes is Dictionary:
+		# 新格式: {x: {...}, y: {...}}
+		for key in raw_nodes:
+			nodes[key] = raw_nodes[key]
 
 func get_node(node_id: String) -> Dictionary:
 	return nodes.get(node_id, {})

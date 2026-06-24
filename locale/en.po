@@ -32,6 +32,9 @@ msgstr "Goblin Archer"
 msgid "enemy_kobold"
 msgstr "Kobold"
 
+msgid "enemy_troll"
+msgstr "Troll"
+
 # === Skills ===
 msgid "skill_attack"
 msgstr "Attack"
@@ -180,3 +183,37 @@ msgstr "Quit"
 
 msgid "ui_empty_slot"
 msgstr "[%d] Empty slot"
+
+# === M2.1 Wilderness NPCs ===
+msgid "npc_slayn_meet"
+msgstr "Hello, brave one. I am Slayn, a mage.\nThere have been strange disturbances in this forest lately.\n\n(1) Tell me more\n(2) I'm busy\n(3) Investigate together?"
+
+msgid "slayn_ask_response"
+msgstr "Thank you for your help. Monsters have been appearing in the eastern forest, and villagers are too scared to approach."
+
+msgid "slayn_ask_no_time"
+msgstr "I see… Safe travels."
+
+msgid "slayn_ask_together"
+msgstr "Excellent! A companion makes things safer. Let's go together."
+
+msgid "npc_slayn_leave"
+msgstr "Farewell. If you change your mind, find me in the eastern forest."
+
+msgid "npc_tike_meet"
+msgstr "Hello! I'm Tike, a forest ranger.\nI saw a wounded elf being attacked by goblins.\n\n(1) I'll rescue her\n(2) Too dangerous\n(3) Why don't you go?"
+
+msgid "tike_ask_rescue"
+msgstr "Wonderful! That elf is my friend. Let's rescue her together."
+
+msgid "tike_ask_dangerous"
+msgstr "True… That elf is strong, perhaps she doesn't need us."
+
+msgid "tike_ask_why_not_you"
+msgstr "I… I'm injured, I can't move. But I can provide arrow support from afar."
+
+msgid "npc_tike_leave"
+msgstr "Be careful, brave one."
+
+msgid "chest_heal_potion_msg"
+msgstr "You obtained a Healing Potion x1!"

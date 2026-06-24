@@ -1,0 +1,34 @@
+{
+  "id": "npc_slayn_meet",
+  "speaker": "npc_slayn",
+  "start": "start",
+  "nodes": {
+    "start": {
+      "text_key": "npc_slayn_meet",
+      "next": "ask"
+    },
+    "ask": {
+      "choices": [
+        {"text": "1", "next": "response"},
+        {"text": "2", "next": "no_time"},
+        {"text": "3", "next": "together"}
+      ]
+    },
+    "response": {
+      "text_key": "slayn_ask_response",
+      "next": "end"
+    },
+    "no_time": {
+      "text_key": "slayn_ask_no_time",
+      "next": "end"
+    },
+    "together": {
+      "text_key": "slayn_ask_together",
+      "next": "end"
+    },
+    "end": {
+      "text_key": "npc_slayn_leave",
+      "is_end": true
+    }
+  }
+}

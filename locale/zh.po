@@ -29,6 +29,9 @@ msgstr "兽人"
 msgid "enemy_goblin_archer"
 msgstr "哥布林弓手"
 
+msgid "enemy_troll"
+msgstr "巨魔"
+
 msgid "enemy_kobold"
 msgstr "狗头人"
 
@@ -180,3 +183,37 @@ msgstr "退出"
 
 msgid "ui_empty_slot"
 msgstr "[%d] 空槽位"
+
+# === M2.1 Wilderness NPCs ===
+msgid "npc_slayn_meet"
+msgstr "你好，勇者。我叫斯雷因，是个魔法使。\n这片森林最近有奇怪的异动。\n\n(1) 愿意听听详情\n(2) 我没空\n(3) 一起调查？"
+
+msgid "slayn_ask_response"
+msgstr "谢谢你愿意帮助。森林东边有怪物出没，村里人都不敢靠近。"
+
+msgid "slayn_ask_no_time"
+msgstr "是吗…那祝你旅途平安。"
+
+msgid "slayn_ask_together"
+msgstr "太好了！有同伴总是更安全。我们一起走。"
+
+msgid "npc_slayn_leave"
+msgstr "再会。如果改变主意，可以来森林东边找我。"
+
+msgid "npc_tike_meet"
+msgstr "你好！我是蒂特，森林里的游侠。\n我看到一只受伤的精灵，\n她正在被哥布林围攻。\n\n(1) 我去救她\n(2) 太危险了\n(3) 你为什么不去？"
+
+msgid "tike_ask_rescue"
+msgstr "太好了！那只精灵是我的朋友。我们一起去救她。"
+
+msgid "tike_ask_dangerous"
+msgstr "也是…那只精灵很强，可能不需要我们。"
+
+msgid "tike_ask_why_not_you"
+msgstr "我…我被敌人打伤了，走不动。但我可以在远处用弓箭支援你。"
+
+msgid "npc_tike_leave"
+msgstr "小心，勇者。"
+
+msgid "chest_heal_potion_msg"
+msgstr "你获得了 治疗药水 x1！"

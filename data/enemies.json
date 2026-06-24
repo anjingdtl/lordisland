@@ -90,5 +90,28 @@
       "weapon": "spear",
       "outline_color": "#1a1a1a"
     }
+  },
+  "troll": {
+    "id": "troll",
+    "name_key": "enemy_troll",
+    "level": 4,
+    "hp": 120,
+    "mp": 0,
+    "str": 14,
+    "agi": 4,
+    "int": 3,
+    "vit": 10,
+    "cha": 1,
+    "skills": ["attack", "smash"],
+    "exp_reward": 50,
+    "sprite": {
+      "type": "troll",
+      "body_color": "#4a6b3a",
+      "hair_color": "#1a2a1a",
+      "skin_color": "#7a8b5a",
+      "armor_color": "#4a6b3a",
+      "weapon": "club",
+      "outline_color": "#1a2a1a"
+    }
   }
 }
