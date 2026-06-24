@@ -18,7 +18,7 @@ var base_int: int
 var base_vit: int
 var base_cha: int
 var skills: Array = []
-var sprite_path: String
+var sprite_data: Dictionary = {}  # sprite 配置（M2 后从 string 改为 dict）
 var exp_reward: int = 0
 var is_alive: bool = true
 var is_player: bool = false
@@ -40,7 +40,7 @@ func _init(data: Dictionary) -> void:
 	base_vit = data.get("vit", 10)
 	base_cha = data.get("cha", 10)
 	skills = data.get("skills", ["attack"])
-	sprite_path = data.get("sprite", "")
+	sprite_data = data.get("sprite", {})
 	exp_reward = data.get("exp_reward", 0)
 	is_player = data.get("is_player", false)
 

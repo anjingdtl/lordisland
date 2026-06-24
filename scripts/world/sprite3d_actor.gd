@@ -53,7 +53,10 @@ func _build_visual() -> void:
 func _setup_animation() -> void:
 	anim = AnimationPlayer.new()
 	add_child(anim)
-	var anim_res = Animation.new()
+	# 必须先添加 library 再加 animation
+	var lib := AnimationLibrary.new()
+	anim.add_animation_library("", lib)
+	var anim_res := Animation.new()
 	anim_res.length = 0.4
 	anim_res.loop_mode = Animation.LOOP_LINEAR
 	var track_idx = anim_res.add_track(Animation.TYPE_VALUE)
@@ -63,9 +66,7 @@ func _setup_animation() -> void:
 	anim_res.track_insert_key(track_idx, 0.2, 2)
 	anim_res.track_insert_key(track_idx, 0.3, 3)
 	anim_res.track_insert_key(track_idx, 0.4, 0)
-	var lib = AnimationLibrary.new()
 	lib.add_animation("walk", anim_res)
-	anim.add_animation_library("", lib)
 	anim.play("walk")
 
 func _add_shadow() -> void:
