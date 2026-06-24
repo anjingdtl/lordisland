@@ -12,5 +12,13 @@
   "vit": 14,
   "cha": 9,
   "skills": ["attack", "smash", "fortify"],
-  "sprite": "res://assets/sprites/characters/ghim.png"
+  "sprite": {
+    "type": "humanoid",
+    "body_color": "#8f6b3d",
+    "hair_color": "#1a1a1a",
+    "skin_color": "#c99060",
+    "armor_color": "#5a3a2a",
+    "weapon": "axe",
+    "outline_color": "#1a1a1a"
+  }
 }

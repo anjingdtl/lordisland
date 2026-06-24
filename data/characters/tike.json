@@ -12,5 +12,13 @@
   "vit": 7,
   "cha": 10,
   "skills": ["attack", "double_shot"],
-  "sprite": "res://assets/sprites/characters/tike.png"
+  "sprite": {
+    "type": "humanoid",
+    "body_color": "#3d8f5a",
+    "hair_color": "#f0c419",
+    "skin_color": "#fbcb8a",
+    "armor_color": "#6b6b6b",
+    "weapon": "bow",
+    "outline_color": "#1a1a1a"
+  }
 }

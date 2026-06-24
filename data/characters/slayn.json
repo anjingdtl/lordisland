@@ -12,5 +12,13 @@
   "vit": 8,
   "cha": 11,
   "skills": ["attack", "fireball", "ice_shard"],
-  "sprite": "res://assets/sprites/characters/slayn.png"
+  "sprite": {
+    "type": "humanoid",
+    "body_color": "#8f3d3d",
+    "hair_color": "#1a1a1a",
+    "skin_color": "#fbcb8a",
+    "armor_color": "#4a4a4a",
+    "weapon": "dagger",
+    "outline_color": "#1a1a1a"
+  }
 }

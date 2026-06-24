@@ -12,5 +12,13 @@
   "vit": 12,
   "cha": 14,
   "skills": ["attack", "light_sword"],
-  "sprite": "res://assets/sprites/characters/parn.png"
+  "sprite": {
+    "type": "humanoid",
+    "body_color": "#2a4d8f",
+    "hair_color": "#f0c419",
+    "skin_color": "#fbcb8a",
+    "armor_color": "#cccccc",
+    "weapon": "sword",
+    "outline_color": "#1a1a1a"
+  }
 }

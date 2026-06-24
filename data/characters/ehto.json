@@ -12,5 +12,13 @@
   "vit": 9,
   "cha": 13,
   "skills": ["attack", "heal", "bless"],
-  "sprite": "res://assets/sprites/characters/ehto.png"
+  "sprite": {
+    "type": "humanoid",
+    "body_color": "#6b3d8f",
+    "hair_color": "#5a3a2a",
+    "skin_color": "#f5d0b0",
+    "armor_color": "#d4a574",
+    "weapon": "staff",
+    "outline_color": "#1a1a1a"
+  }
 }

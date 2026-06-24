@@ -12,7 +12,15 @@
     "cha": 1,
     "skills": ["attack"],
     "exp_reward": 8,
-    "sprite": "res://assets/sprites/enemies/goblin.png"
+    "sprite": {
+      "type": "goblin",
+      "body_color": "#3d6e3d",
+      "hair_color": "#1a2a1a",
+      "skin_color": "#8aac5c",
+      "armor_color": "#3d6e3d",
+      "weapon": "club",
+      "outline_color": "#1a2a1a"
+    }
   },
   "orc": {
     "id": "orc",
@@ -27,7 +35,15 @@
     "cha": 1,
     "skills": ["attack", "smash"],
     "exp_reward": 30,
-    "sprite": "res://assets/sprites/enemies/orc.png"
+    "sprite": {
+      "type": "orc",
+      "body_color": "#5a3a2a",
+      "hair_color": "#1a1a1a",
+      "skin_color": "#8a6b3d",
+      "armor_color": "#5a3a2a",
+      "weapon": "club",
+      "outline_color": "#1a1a1a"
+    }
   },
   "goblin_archer": {
     "id": "goblin_archer",
@@ -42,7 +58,15 @@
     "cha": 1,
     "skills": ["attack"],
     "exp_reward": 12,
-    "sprite": "res://assets/sprites/enemies/goblin_archer.png"
+    "sprite": {
+      "type": "goblin_archer",
+      "body_color": "#3d6e3d",
+      "hair_color": "#1a2a1a",
+      "skin_color": "#8aac5c",
+      "armor_color": "#3d6e3d",
+      "weapon": "bow",
+      "outline_color": "#1a2a1a"
+    }
   },
   "kobold": {
     "id": "kobold",
@@ -57,6 +81,14 @@
     "cha": 1,
     "skills": ["attack"],
     "exp_reward": 14,
-    "sprite": "res://assets/sprites/enemies/kobold.png"
+    "sprite": {
+      "type": "kobold",
+      "body_color": "#8f6b3d",
+      "hair_color": "#1a1a1a",
+      "skin_color": "#c99060",
+      "armor_color": "#8f6b3d",
+      "weapon": "spear",
+      "outline_color": "#1a1a1a"
+    }
   }
 }
