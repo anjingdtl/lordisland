@@ -1,0 +1,5 @@
+.godot/
+*.translation
+addons/*/demo/
+.superpowers/
+*.import
