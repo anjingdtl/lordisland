@@ -1,0 +1,16 @@
+{
+  "id": "npc_ehto_intro",
+  "speaker": "char_ehto_name",
+  "portrait": "ehto_neutral",
+  "nodes": [
+    {"id": "start", "text_key": "ehto_intro_1", "next": "ask_who"},
+    {"id": "ask_who", "text_key": "ehto_intro_2",
+     "choices": [
+       {"label_key": "choice_a", "next": "answer_a"},
+       {"label_key": "choice_b", "next": "answer_b"}
+     ]},
+    {"id": "answer_a", "text_key": "ehto_intro_3", "next": "end"},
+    {"id": "answer_b", "text_key": "ehto_intro_4", "next": "end"},
+    {"id": "end", "type": "end"}
+  ]
+}

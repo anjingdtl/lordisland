@@ -1,0 +1,182 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"
+
+# === Characters ===
+msgid "char_parn_name"
+msgstr "Parn"
+
+msgid "char_ehto_name"
+msgstr "Ehto"
+
+msgid "char_slayn_name"
+msgstr "Slayn"
+
+msgid "char_tike_name"
+msgstr "Tike"
+
+msgid "char_ghim_name"
+msgstr "Ghim"
+
+# === Enemies ===
+msgid "enemy_goblin"
+msgstr "Goblin"
+
+msgid "enemy_orc"
+msgstr "Orc"
+
+msgid "enemy_goblin_archer"
+msgstr "Goblin Archer"
+
+msgid "enemy_kobold"
+msgstr "Kobold"
+
+# === Skills ===
+msgid "skill_attack"
+msgstr "Attack"
+
+msgid "skill_light_sword"
+msgstr "Light Sword"
+
+msgid "skill_smash"
+msgstr "Smash"
+
+msgid "skill_fortify"
+msgstr "Fortify"
+
+msgid "skill_double_shot"
+msgstr "Double Shot"
+
+msgid "skill_fireball"
+msgstr "Fireball"
+
+msgid "skill_ice_shard"
+msgstr "Ice Shard"
+
+msgid "skill_heal"
+msgstr "Heal"
+
+msgid "skill_bless"
+msgstr "Bless"
+
+# === Skill descriptions ===
+msgid "skill_attack_desc"
+msgstr "Basic physical attack"
+
+msgid "skill_light_sword_desc"
+msgstr "Parn's specialty, sword of light"
+
+msgid "skill_smash_desc"
+msgstr "Heavy blow with extra damage"
+
+msgid "skill_fortify_desc"
+msgstr "Raise defense for 3 turns"
+
+msgid "skill_double_shot_desc"
+msgstr "Fire two arrows"
+
+msgid "skill_fireball_desc"
+msgstr "Slayn's fire magic"
+
+msgid "skill_ice_shard_desc"
+msgstr "Ice attack magic"
+
+msgid "skill_heal_desc"
+msgstr "Restore an ally's HP"
+
+msgid "skill_bless_desc"
+msgstr "Boost an ally's attack and defense"
+
+# === NPC names ===
+msgid "npc_town_chief"
+msgstr "Village Chief"
+
+msgid "npc_inn_keeper"
+msgstr "Inn Keeper"
+
+msgid "npc_ehto"
+msgstr "Ehto"
+
+# === Dialogues ===
+# npc_town_chief_intro
+msgid "tc_intro_1"
+msgstr "Brave one, thank you for your help. Recently, monsters have appeared in the cave outside the village..."
+
+msgid "tc_intro_2"
+msgstr "One of our young people went missing there. Would you go look for them?"
+
+msgid "choice_tc_yes"
+msgstr "Yes, I'll go"
+
+msgid "choice_tc_no"
+msgstr "Let me ask around first"
+
+msgid "tc_intro_3"
+msgstr "Wonderful! Be careful of those monsters."
+
+msgid "tc_intro_4"
+msgstr "The cave is southeast of the village."
+
+# npc_ehto_intro
+msgid "ehto_intro_1"
+msgstr "Thank you for rescuing me, brave one."
+
+msgid "ehto_intro_2"
+msgstr "Who are you...?"
+
+msgid "choice_a"
+msgstr "I'm Parn, a knight"
+
+msgid "choice_b"
+msgstr "Just passing by"
+
+msgid "ehto_intro_3"
+msgstr "I see. Indeed a brave knight."
+
+msgid "ehto_intro_4"
+msgstr "Then thank you as well."
+
+# === UI ===
+msgid "ui_defend"
+msgstr "Defend"
+
+msgid "ui_run"
+msgstr "Run"
+
+msgid "ui_victory"
+msgstr "Victory!"
+
+msgid "ui_defeat"
+msgstr "Defeat..."
+
+msgid "ui_turn"
+msgstr "%s's turn"
+
+msgid "ui_battle_log_victory"
+msgstr "Victory! Gained %d exp"
+
+msgid "ui_battle_log_defeat"
+msgstr "Defeat..."
+
+# === Save/Load UI ===
+msgid "ui_save"
+msgstr "Save"
+
+msgid "ui_load"
+msgstr "Load"
+
+msgid "ui_new_game"
+msgstr "New Game"
+
+msgid "ui_continue"
+msgstr "Continue"
+
+msgid "ui_settings"
+msgstr "Settings"
+
+msgid "ui_quit"
+msgstr "Quit"
+
+msgid "ui_empty_slot"
+msgstr "[%d] Empty slot"

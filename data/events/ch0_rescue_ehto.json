@@ -1,0 +1,13 @@
+{
+  "id": "ch0_rescue_ehto",
+  "trigger": "on_talk",
+  "key": "npc_ehto",
+  "conditions": [
+    {"type": "not_flag", "key": "ehto_rescued", "value": true}
+  ],
+  "steps": [
+    {"type": "show_dialogue", "id": "npc_ehto_intro"},
+    {"type": "set_flag", "key": "ehto_rescued", "value": true},
+    {"type": "join_party", "character": "ehto"}
+  ]
+}

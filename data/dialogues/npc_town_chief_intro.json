@@ -1,0 +1,16 @@
+{
+  "id": "npc_town_chief_intro",
+  "speaker": "npc_town_chief",
+  "portrait": "town_chief_neutral",
+  "nodes": [
+    {"id": "start", "text_key": "tc_intro_1", "next": "ask"},
+    {"id": "ask", "text_key": "tc_intro_2",
+     "choices": [
+       {"label_key": "choice_tc_yes", "next": "yes_path"},
+       {"label_key": "choice_tc_no", "next": "no_path"}
+     ]},
+    {"id": "yes_path", "text_key": "tc_intro_3", "next": "end"},
+    {"id": "no_path", "text_key": "tc_intro_4", "next": "end"},
+    {"id": "end", "type": "end"}
+  ]
+}

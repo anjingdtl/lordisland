@@ -1,0 +1,182 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: zh\n"
+
+# === Characters ===
+msgid "char_parn_name"
+msgstr "帕恩"
+
+msgid "char_ehto_name"
+msgstr "艾特"
+
+msgid "char_slayn_name"
+msgstr "斯雷因"
+
+msgid "char_tike_name"
+msgstr "蒂特"
+
+msgid "char_ghim_name"
+msgstr "吉姆"
+
+# === Enemies ===
+msgid "enemy_goblin"
+msgstr "哥布林"
+
+msgid "enemy_orc"
+msgstr "兽人"
+
+msgid "enemy_goblin_archer"
+msgstr "哥布林弓手"
+
+msgid "enemy_kobold"
+msgstr "狗头人"
+
+# === Skills ===
+msgid "skill_attack"
+msgstr "攻击"
+
+msgid "skill_light_sword"
+msgstr "光之剑"
+
+msgid "skill_smash"
+msgstr "重击"
+
+msgid "skill_fortify"
+msgstr "强化防御"
+
+msgid "skill_double_shot"
+msgstr "二连射"
+
+msgid "skill_fireball"
+msgstr "火球术"
+
+msgid "skill_ice_shard"
+msgstr "冰锥术"
+
+msgid "skill_heal"
+msgstr "治疗"
+
+msgid "skill_bless"
+msgstr "祝福"
+
+# === Skill descriptions ===
+msgid "skill_attack_desc"
+msgstr "普通物理攻击"
+
+msgid "skill_light_sword_desc"
+msgstr "帕恩的看家本领，光之剑的化身"
+
+msgid "skill_smash_desc"
+msgstr "重击，造成额外伤害"
+
+msgid "skill_fortify_desc"
+msgstr "提升自身防御 3 回合"
+
+msgid "skill_double_shot_desc"
+msgstr "射出两支箭矢"
+
+msgid "skill_fireball_desc"
+msgstr "斯雷因的火系魔法"
+
+msgid "skill_ice_shard_desc"
+msgstr "冰系攻击魔法"
+
+msgid "skill_heal_desc"
+msgstr "回复一个友军 HP"
+
+msgid "skill_bless_desc"
+msgstr "提升一个友军的攻防"
+
+# === NPC names ===
+msgid "npc_town_chief"
+msgstr "洛奈村长"
+
+msgid "npc_inn_keeper"
+msgstr "旅店老板"
+
+msgid "npc_ehto"
+msgstr "艾特"
+
+# === Dialogues ===
+# npc_town_chief_intro
+msgid "tc_intro_1"
+msgstr "勇者啊，感谢你愿意帮助我们。最近村外洞窟里有怪物出没..."
+
+msgid "tc_intro_2"
+msgstr "我们有个年轻人在那里失踪了，你愿意去找找看吗？"
+
+msgid "choice_tc_yes"
+msgstr "愿意，我去"
+
+msgid "choice_tc_no"
+msgstr "我先问问情况"
+
+msgid "tc_intro_3"
+msgstr "太好了！小心那些怪物。"
+
+msgid "tc_intro_4"
+msgstr "那个洞窟在村外东南方向。"
+
+# npc_ehto_intro
+msgid "ehto_intro_1"
+msgstr "感谢你救了我，勇者。"
+
+msgid "ehto_intro_2"
+msgstr "请问你是……？"
+
+msgid "choice_a"
+msgstr "我叫帕恩，是个骑士"
+
+msgid "choice_b"
+msgstr "我只是路过"
+
+msgid "ehto_intro_3"
+msgstr "原来如此，果然是名勇敢的骑士。"
+
+msgid "ehto_intro_4"
+msgstr "那也谢谢你。"
+
+# === UI ===
+msgid "ui_defend"
+msgstr "防御"
+
+msgid "ui_run"
+msgstr "逃跑"
+
+msgid "ui_victory"
+msgstr "胜利！"
+
+msgid "ui_defeat"
+msgstr "失败..."
+
+msgid "ui_turn"
+msgstr "%s 的回合"
+
+msgid "ui_battle_log_victory"
+msgstr "胜利！获得 %d 经验"
+
+msgid "ui_battle_log_defeat"
+msgstr "失败..."
+
+# === Save/Load UI ===
+msgid "ui_save"
+msgstr "存档"
+
+msgid "ui_load"
+msgstr "读档"
+
+msgid "ui_new_game"
+msgstr "新游戏"
+
+msgid "ui_continue"
+msgstr "继续"
+
+msgid "ui_settings"
+msgstr "设置"
+
+msgid "ui_quit"
+msgstr "退出"
+
+msgid "ui_empty_slot"
+msgstr "[%d] 空槽位"
