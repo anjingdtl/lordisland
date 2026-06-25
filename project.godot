@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Lordisland: Record of Lodoss War 2D RPG"
 config/description="A 2D HD-2D RPG based on Record of Lodoss War OVA."
-run/main_scene="res://scenes/world/loranai_city.tscn"
+run/main_scene="res://scenes/ui/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
 [autoload]

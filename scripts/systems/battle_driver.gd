@@ -4,7 +4,7 @@ extends Node
 ## 5v3 战斗端到端测试
 ## 跑通完整回合循环，AI 自动选择攻击
 
-const LOG_PATH := "d:/Claudeworkspace/Lordisland/.godot_cache/battle_test.log"
+const LOG_PATH := "user://battle_test.log"
 
 var _passed: int = 0
 var _failed: int = 0
@@ -16,8 +16,7 @@ var _action_count: int = 0
 var ctrl: BattleController
 
 func _ready() -> void:
-	_log("=== BattleDriver ready ===")
-	_run_battle_test()
+	pass  # 由 test_battle_5v3.gd 显式调用 run()
 
 func run() -> void:
 	_log("=== BattleDriver.run() called ===")
