@@ -2,6 +2,7 @@ extends SceneTree
 
 ## 事件系统测试
 
+const EventSystem = preload("res://scripts/systems/event_system.gd")
 const LOG_PATH := "user://event_test.log"
 
 var _passed: int = 0

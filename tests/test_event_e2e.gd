@@ -5,12 +5,13 @@ extends SceneTree
 
 const LOG_PATH := "user://event_e2e_test.log"
 const DialogueUI = preload("res://scripts/ui/dialogue_ui.gd")
+const EventSystem = preload("res://scripts/systems/event_system.gd")
 const EventExecutor = preload("res://scripts/systems/event_executor.gd")
 
 var _passed: int = 0
 var _failed: int = 0
-var es: EventSystem
-var exec: EventExecutor
+var es: RefCounted
+var exec: RefCounted
 
 func _init() -> void:
 	var f = FileAccess.open(LOG_PATH, FileAccess.WRITE)

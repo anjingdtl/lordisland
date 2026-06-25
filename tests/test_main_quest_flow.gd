@@ -4,6 +4,11 @@ extends SceneTree
 ## 验证：帕恩入队 → 进城 → 找村长 → 进洞窟 → 打哥布林 → 救艾特 → 艾特入队 → 旗标全对
 
 const LOG_PATH := "user://quest_flow_test.log"
+const DialogueParser = preload("res://scripts/systems/dialogue_parser.gd")
+const EventExecutor = preload("res://scripts/systems/event_executor.gd")
+const EventSystem = preload("res://scripts/systems/event_system.gd")
+const PartyManager = preload("res://scripts/core/party_manager.gd")
+const SaveSystem = preload("res://scripts/systems/save_system.gd")
 
 var _passed: int = 0
 var _failed: int = 0

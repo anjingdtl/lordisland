@@ -4,6 +4,9 @@ extends Node3D
 ## 3D 场景中的 sprite 节点
 ## 程序化生成 sprite, billboard 朝向相机, 走路动画
 
+const AssetLoader = preload("res://scripts/core/asset_loader.gd")
+const SpriteGenerator = preload("res://scripts/core/sprite_generator.gd")
+
 @export var sprite_data: Dictionary = {}
 @export var actor_id: String = ""
 @export var use_walk_animation: bool = true
@@ -42,6 +45,7 @@ func _build_visual() -> void:
 		tex = gen.generate_walk_strip(data)
 	# 创建 Sprite3D
 	sprite = Sprite3D.new()
+	sprite.name = "Sprite3D"
 	sprite.texture = tex
 	sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	sprite.pixel_size = pixel_size

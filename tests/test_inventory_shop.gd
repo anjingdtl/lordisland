@@ -2,6 +2,8 @@ extends SceneTree
 
 ## 库存 + 商店系统测试
 
+const Inventory = preload("res://scripts/core/inventory.gd")
+
 var _passed: int = 0
 var _failed: int = 0
 

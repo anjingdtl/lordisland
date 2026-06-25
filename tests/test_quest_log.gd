@@ -2,6 +2,9 @@ extends SceneTree
 
 ## 任务系统测试
 
+const EventSystem = preload("res://scripts/systems/event_system.gd")
+const QuestLog = preload("res://scripts/core/quest_log.gd")
+
 var _passed: int = 0
 var _failed: int = 0
 

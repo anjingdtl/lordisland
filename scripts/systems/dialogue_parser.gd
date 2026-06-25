@@ -66,14 +66,15 @@ func get_choice_targets(node_id: String) -> Array[String]:
 		result.append(c.get("next", ""))
 	return result
 
-static func load_from_file(path: String) -> DialogueParser:
+static func load_from_file(path: String) -> RefCounted:
+	var self_script = load("res://scripts/systems/dialogue_parser.gd")
 	if not FileAccess.file_exists(path):
 		push_error("Dialogue file not found: %s" % path)
-		return DialogueParser.new({})
+		return self_script.new({})
 	var f = FileAccess.open(path, FileAccess.READ)
 	var text = f.get_as_text()
 	var data = JSON.parse_string(text)
 	if data == null:
 		push_error("Dialogue JSON parse error: %s" % path)
-		return DialogueParser.new({})
-	return DialogueParser.new(data)
+		return self_script.new({})
+	return self_script.new(data)

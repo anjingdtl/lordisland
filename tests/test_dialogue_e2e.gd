@@ -3,6 +3,7 @@ extends SceneTree
 ## 对话 + 翻译 端到端测试
 ## 加载对话 JSON，验证中英翻译
 
+const DialogueParser = preload("res://scripts/systems/dialogue_parser.gd")
 const LOG_PATH := "user://dialogue_test.log"
 
 var _passed: int = 0

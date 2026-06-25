@@ -4,11 +4,11 @@ extends RefCounted
 ## 队伍管理
 ## 维护当前 party、队员 HP/MP、加入/移除
 
-var event_system: EventSystem
+var event_system: RefCounted
 var members: Array[String] = []  # 角色 id 列表
 var party_data: Dictionary = {}  # character_id -> actor_data（动态更新）
 
-func _init(es: EventSystem) -> void:
+func _init(es: RefCounted) -> void:
 	event_system = es
 
 func add_member(character_id: String) -> bool:
@@ -41,16 +41,23 @@ func get_member_data(character_id: String) -> Dictionary:
 func get_member_ids() -> Array[String]:
 	return members.duplicate()
 
-## 从存档恢复
-func restore(member_ids: Array, members_data: Dictionary) -> void:
-	members = member_ids.duplicate()
-	party_data = members_data.duplicate(true)
+## 从存档恢复（容错：接受 Variant Array 或 Array[String]）
+func restore(member_ids, members_data) -> void:
+	members.clear()
+	if member_ids is Array:
+		for id in member_ids:
+			if id is String and not id.is_empty():
+				members.append(id)
+	if members_data is Dictionary:
+		party_data = (members_data as Dictionary).duplicate(true)
+	else:
+		party_data = {}
 
 ## 序列化为存档数据
 func to_dict() -> Dictionary:
 	return {
-		"members": members,
-		"party_data": party_data
+		"members": members.duplicate(),
+		"party_data": party_data.duplicate(true)
 	}
 
 func get_size() -> int:

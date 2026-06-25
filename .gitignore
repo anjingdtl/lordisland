@@ -8,3 +8,25 @@ addons/*/demo/
 *.import
 *.tmp
 *.bak
+
+# Build artifacts
+build/
+
+# Test output logs
+test_results/
+
+# AI illustration source (kept locally for reference)
+illustration/
+
+# Claude / agent local state
+.claude/
+
+# Godot project local cache
+*.uid
+*.remap
+
+# GitNexus auto-generated
+.gitnexus/
+.gitnexus
+AGENTS.md
+CLAUDE.md

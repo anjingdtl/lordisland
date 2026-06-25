@@ -8,10 +8,13 @@ extends Node3D
 @export var dialogue_id: String
 @export var event_id: String = ""
 
+const DialogueParserScript = preload("res://scripts/systems/dialogue_parser.gd")
+const EventExecutorScript = preload("res://scripts/systems/event_executor.gd")
+
 func on_interact() -> void:
 	# 1. 触发对话
 	if dialogue_id != "":
-		var parser = DialogueParser.load_from_file("res://data/dialogues/%s.json" % dialogue_id)
+		var parser = DialogueParserScript.load_from_file("res://data/dialogues/%s.json" % dialogue_id)
 		if parser.id != "":
 			var DialogueUI = load("res://scripts/ui/dialogue_ui.gd")
 			var ui: Control = DialogueUI.new()
@@ -27,7 +30,7 @@ func on_interact() -> void:
 		if globals and globals.event_system:
 			if not globals.event_system.listeners.has("on_talk"):
 				# 注册默认事件
-				var exec = EventExecutor.new(globals.event_system, globals.party_manager)
+				var exec = EventExecutorScript.new(globals.event_system, globals.party_manager)
 				exec.register_from_json("res://data/events/%s.json" % event_id)
 			globals.event_system.trigger("on_talk", npc_id)
 

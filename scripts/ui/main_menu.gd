@@ -1,14 +1,18 @@
 class_name MainMenu
 extends Control
 
-## 主菜单（升级版）：logo + 背景 + 按钮
-## UI 程序化构建
+## 主菜单（Steam 上线版）
+## 包含：logo + 背景 + 5 个按钮（新游戏/继续/读档/设置/退出）
+## UI 程序化构建，无外部资源依赖
 
 signal new_game_pressed
 signal continue_pressed
 signal load_pressed
 signal settings_pressed
 signal quit_pressed
+
+const AssetLoader = preload("res://scripts/core/asset_loader.gd")
+const VERSION := "v0.4.0"
 
 var _has_save: bool = false
 
@@ -36,35 +40,52 @@ func _build_background() -> void:
 	add_child(dim)
 
 func _build_logo() -> void:
-	# Logo 图
+	# Logo 图（居中上方）
 	var logo_tex = AssetLoader.get_texture("res://assets/logo.jpg")
 	if logo_tex != null:
 		var logo = TextureRect.new()
 		logo.texture = logo_tex
-		logo.custom_minimum_size = Vector2(600, 600)
-		logo.expand_mode = TextureRect.EXPAND_FIT_WIDTH
+		logo.custom_minimum_size = Vector2(480, 480)
+		logo.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
 		logo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		logo.set_anchors_preset(Control.PRESET_TOP_WIDE)
+		logo.set_anchors_preset(Control.PRESET_CENTER)
 		logo.anchor_top = 0.05
 		logo.anchor_bottom = 0.05
 		logo.anchor_left = 0.5
 		logo.anchor_right = 0.5
-		logo.position = Vector2(-300, 0)
+		logo.offset_left = -240
+		logo.offset_right = 240
+		logo.offset_top = 0
+		logo.offset_bottom = 480
 		add_child(logo)
-	# 标题文字
+	# 标题文字（logo 下方）
 	var title = Label.new()
 	title.text = "罗德岛战记"
-	title.set_anchors_preset(Control.PRESET_TOP_WIDE)
+	title.set_anchors_preset(Control.PRESET_CENTER)
+	title.anchor_top = 0.5
+	title.anchor_bottom = 0.5
+	title.anchor_left = 0.5
+	title.anchor_right = 0.5
+	title.offset_top = 0
+	title.offset_bottom = 60
+	title.offset_left = -300
+	title.offset_right = 300
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	title.position.y = 620
 	title.add_theme_font_size_override("font_size", 56)
 	title.modulate = Color(1, 0.85, 0.5, 1)
 	add_child(title)
 	var subtitle = Label.new()
 	subtitle.text = "Record of Lodoss War 2D RPG"
-	subtitle.set_anchors_preset(Control.PRESET_TOP_WIDE)
+	subtitle.set_anchors_preset(Control.PRESET_CENTER)
+	subtitle.anchor_top = 0.55
+	subtitle.anchor_bottom = 0.55
+	subtitle.anchor_left = 0.5
+	subtitle.anchor_right = 0.5
+	subtitle.offset_top = 0
+	subtitle.offset_bottom = 40
+	subtitle.offset_left = -300
+	subtitle.offset_right = 300
 	subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	subtitle.position.y = 690
 	subtitle.add_theme_font_size_override("font_size", 20)
 	subtitle.modulate = Color(0.8, 0.8, 0.9, 1)
 	add_child(subtitle)
@@ -76,51 +97,59 @@ func _build_buttons() -> void:
 	vbox.anchor_right = 0.5
 	vbox.anchor_top = 0.7
 	vbox.anchor_bottom = 0.7
-	vbox.position = Vector2(-150, 0)
-	vbox.custom_minimum_size = Vector2(300, 0)
+	vbox.offset_left = -150
+	vbox.offset_right = 150
+	vbox.offset_top = 0
+	vbox.offset_bottom = 320
 	vbox.add_theme_constant_override("separation", 12)
 	add_child(vbox)
-	for label in ["ui_new_game", "ui_continue", "ui_load", "ui_settings", "ui_quit"]:
+	# 按钮
+	var labels = ["ui_new_game", "ui_continue", "ui_load", "ui_settings", "ui_quit"]
+	var handlers = {
+		"ui_new_game": "_on_new_game",
+		"ui_continue": "_on_continue",
+		"ui_load": "_on_load",
+		"ui_settings": "_on_settings",
+		"ui_quit": "_on_quit",
+	}
+	for label in labels:
 		var btn = Button.new()
 		btn.text = TranslationServer.translate(label)
 		btn.custom_minimum_size = Vector2(280, 48)
 		btn.add_theme_font_size_override("font_size", 22)
-		match label:
-			"ui_new_game": btn.pressed.connect(_on_new_game)
-			"ui_continue": btn.pressed.connect(_on_continue); btn.name = "BtnContinue"
-			"ui_load": btn.pressed.connect(_on_load)
-			"ui_settings": btn.pressed.connect(_on_settings)
-			"ui_quit": btn.pressed.connect(_on_quit)
+		var handler = handlers[label]
+		btn.pressed.connect(Callable(self, handler))
+		if label == "ui_continue":
+			btn.name = "BtnContinue"
 		vbox.add_child(btn)
 	# 版本号
 	var version = Label.new()
-	version.text = "v0.3.0 M3"
+	version.text = VERSION
 	version.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
 	version.position = Vector2(-100, -30)
 	version.modulate = Color(0.6, 0.6, 0.6, 1)
 	add_child(version)
 
 func _check_save() -> void:
+	_has_save = false
 	for i in 10:
 		if FileAccess.file_exists("user://saves/save_%d.json" % i):
 			_has_save = true
-			return
-	var btn = get_node_or_null("BtnContinue")
-	if btn:
-		btn.disabled = true
-		btn.text = TranslationServer.translate("ui_continue") + " (*)"
-	# 异步找
-	if has_node("BtnContinue"):
-		var btn2 = get_node("BtnContinue")
-		btn2.disabled = true
-		btn2.text = TranslationServer.translate("ui_continue") + " (无存档)"
+			break
+	if not _has_save:
+		var btn = get_node_or_null("BtnContinue")
+		if btn:
+			btn.disabled = true
+			btn.text = TranslationServer.translate("ui_continue") + " (无存档)"
 
 func _on_new_game() -> void:
 	new_game_pressed.emit()
+	_play_ui_click()
 	_start_new_game()
 
 func _on_continue() -> void:
 	continue_pressed.emit()
+	_play_ui_click()
 	for i in range(9, -1, -1):
 		if FileAccess.file_exists("user://saves/save_%d.json" % i):
 			_load_slot(i)
@@ -128,6 +157,7 @@ func _on_continue() -> void:
 
 func _on_load() -> void:
 	load_pressed.emit()
+	_play_ui_click()
 	var selector_script = load("res://scripts/ui/save_load_ui.gd")
 	var selector = selector_script.new()
 	add_child(selector)
@@ -136,11 +166,21 @@ func _on_load() -> void:
 
 func _on_settings() -> void:
 	settings_pressed.emit()
-	# TODO: 设置
+	_play_ui_click()
+	var settings_script = load("res://scripts/ui/settings_ui.gd")
+	var settings = settings_script.new()
+	add_child(settings)
+	settings.closed.connect(func(): settings.queue_free())
 
 func _on_quit() -> void:
 	quit_pressed.emit()
+	_play_ui_click()
 	get_tree().quit()
+
+func _play_ui_click() -> void:
+	var globals = _get_globals()
+	if globals and globals.audio_manager:
+		globals.audio_manager.play_sfx("click")
 
 func _start_new_game() -> void:
 	var globals = _get_globals()
@@ -161,7 +201,7 @@ func _load_slot(slot: int) -> void:
 		return
 	if globals.save_system.load_from_slot(slot):
 		var members = globals.save_system.get_value("members")
-		if members is Array:
+		if members != null:
 			globals.party_manager.restore(members, {})
 	get_tree().change_scene_to_file("res://scenes/world/loranai_city.tscn")
 

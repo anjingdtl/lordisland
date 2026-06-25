@@ -8,6 +8,7 @@ extends RefCounted
 
 var listeners: Dictionary = {}  # trigger_type -> [{key, callback, conditions}]
 var flags: Dictionary = {}
+var counters: Dictionary = {}
 
 func register(trigger_type: String, key: String, callback: Callable, conditions: Array = []) -> void:
 	if not listeners.has(trigger_type):
@@ -54,6 +55,18 @@ func get_flag(key: String):
 func has_flag(key: String, value = true) -> bool:
 	return flags.get(key, null) == value
 
+## Counter API（用于任务计数等）
+func set_counter(key: String, value: int) -> void:
+	counters[key] = value
+
+func get_counter(key: String) -> int:
+	return int(counters.get(key, 0))
+
+func inc_counter(key: String, amount: int = 1) -> int:
+	counters[key] = int(counters.get(key, 0)) + amount
+	return counters[key]
+
 func reset() -> void:
 	listeners.clear()
 	flags.clear()
+	counters.clear()

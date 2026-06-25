@@ -5,6 +5,7 @@ extends Control
 ## 程序化构建
 
 const ITEMS_PATH := "res://data/items.json"
+const InventoryScript = preload("res://scripts/core/inventory.gd")
 
 signal closed
 signal purchased(item_id: String)
@@ -13,7 +14,7 @@ signal sold(item_id: String)
 var mode: String = "buy"  # "buy" or "sell"
 var shop_items: Array = []  # [{id, price}, ...]
 var item_data: Dictionary = {}
-var _inventory: Inventory = null
+var _inventory: RefCounted = null
 var _buttons: Array[Button] = []
 var _item_labels: Array[Label] = []
 var _gold_label: Label
@@ -39,7 +40,7 @@ func _load_inventory() -> void:
 	if globals and globals.inventory:
 		_inventory = globals.inventory
 	else:
-		_inventory = Inventory.new()
+		_inventory = InventoryScript.new()
 
 func _build_ui() -> void:
 	# 半透明背景

@@ -5,6 +5,10 @@ extends Node
 ## 跑通完整回合循环，AI 自动选择攻击
 
 const LOG_PATH := "user://battle_test.log"
+const BattleControllerScript = preload("res://scripts/systems/battle_controller.gd")
+const STATE_PLAYER_TURN := 1
+const STATE_ENEMY_TURN := 2
+const STATE_ENDED := 4
 
 var _passed: int = 0
 var _failed: int = 0
@@ -13,7 +17,7 @@ var _victory: bool = false
 var _exp: int = 0
 var _turn_count: int = 0
 var _action_count: int = 0
-var ctrl: BattleController
+var ctrl: Object
 
 func _ready() -> void:
 	pass  # 由 test_battle_5v3.gd 显式调用 run()
@@ -32,7 +36,7 @@ func _log(msg: String) -> void:
 	f.close()
 
 func _run_battle_test() -> void:
-	ctrl = BattleController.new()
+	ctrl = BattleControllerScript.new()
 	add_child(ctrl)
 	ctrl.battle_ended.connect(_on_battle_ended)
 	ctrl.actor_acted.connect(_on_actor_acted)
@@ -70,7 +74,7 @@ func _on_battle_ended(victory: bool, exp: int) -> void:
 	_assert(_action_count > 0, "应该至少执行一次行动")
 	battle_finished.emit()
 
-func _on_actor_acted(actor: Actor, action: String, targets: Array, results: Array) -> void:
+func _on_actor_acted(actor: Object, action: String, targets: Array, results: Array) -> void:
 	_action_count += 1
 	if actor.is_player:
 		_turn_count += 1
@@ -92,11 +96,11 @@ func _process(_delta: float) -> void:
 	if ctrl == null:
 		return
 	match ctrl.state:
-		BattleController.State.ENEMY_TURN:
+		STATE_ENEMY_TURN:
 			ctrl.enemy_act.call_deferred()
-		BattleController.State.PLAYER_TURN:
+		STATE_PLAYER_TURN:
 			_auto_player_action()
-		BattleController.State.ENDED:
+		STATE_ENDED:
 			if not _battle_ended:
 				return
 			print("\n=== 测试结果: %d passed, %d failed ===" % [_passed, _failed])

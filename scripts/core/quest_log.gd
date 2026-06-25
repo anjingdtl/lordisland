@@ -10,10 +10,10 @@ var quest_data: Dictionary = {}
 var active_quests: Array = []  # quest_id
 var completed_quests: Array = []
 
-func _init(es: EventSystem) -> void:
+func _init(es: RefCounted) -> void:
 	_load_data(es)
 
-func _load_data(es: EventSystem) -> void:
+func _load_data(_es: RefCounted) -> void:
 	var f = FileAccess.open("res://data/quests.json", FileAccess.READ)
 	if f == null:
 		return

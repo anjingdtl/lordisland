@@ -70,14 +70,14 @@ func _apply_scene_type() -> void:
 		"forest":
 			env.ambient_light_color = Color(0.35, 0.5, 0.4, 1)
 			env.ambient_light_energy = 0.45
-			env.fog_color = Color(0.4, 0.5, 0.4, 1)
+			env.fog_light_color = Color(0.4, 0.5, 0.4, 1)
 			env.fog_density = 0.012
 			sun.light_color = Color(0.85, 0.95, 0.9, 1)
 			sun.light_energy = 0.7
 		"cave":
 			env.ambient_light_color = Color(0.25, 0.3, 0.45, 1)
 			env.ambient_light_energy = 0.3
-			env.fog_color = Color(0.3, 0.35, 0.5, 1)
+			env.fog_light_color = Color(0.3, 0.35, 0.5, 1)
 			env.fog_density = 0.025
 			sun.light_color = Color(0.6, 0.7, 1.0, 1)
 			sun.light_energy = 0.4

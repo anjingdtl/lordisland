@@ -2,6 +2,9 @@ extends SceneTree
 
 ## BGM 系统测试
 
+const AudioManager = preload("res://scripts/core/audio_manager.gd")
+const BGMGenerator = preload("res://scripts/core/bgm_generator.gd")
+
 var _passed: int = 0
 var _failed: int = 0
 

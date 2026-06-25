@@ -301,3 +301,24 @@ msgstr "结识队友"
 
 msgid "quest_meet_three_desc"
 msgstr "斯雷因：冒险前多认识些朋友。和艾特、蒂特、斯雷因都聊聊。"
+# === M3+ Settings ===
+msgid "setting_music_volume"
+msgstr "音乐音量"
+
+msgid "setting_sfx_volume"
+msgstr "音效音量"
+
+msgid "setting_language"
+msgstr "语言"
+
+msgid "setting_resolution"
+msgstr "分辨率"
+
+msgid "setting_fullscreen"
+msgstr "全屏"
+
+msgid "setting_apply"
+msgstr "应用"
+
+msgid "setting_close"
+msgstr "关闭"

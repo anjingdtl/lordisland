@@ -2,6 +2,8 @@ extends SceneTree
 
 ## 野外地图 E2E 测试
 
+const DialogueParser = preload("res://scripts/systems/dialogue_parser.gd")
+const EventSystem = preload("res://scripts/systems/event_system.gd")
 const LOG_PATH := "user://wilderness_test.log"
 
 var _passed: int = 0

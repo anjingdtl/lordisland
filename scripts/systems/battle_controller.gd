@@ -6,11 +6,11 @@ extends Node
 ## 信号驱动 UI 更新
 
 signal battle_started
-signal turn_started(actor: Actor)
-signal actor_acted(actor: Actor, action: String, targets: Array, results: Array)
-signal actor_damaged(target: Actor, amount: int, is_crit: bool)
-signal actor_healed(target: Actor, amount: int)
-signal actor_died(actor: Actor)
+signal turn_started(actor: Object)
+signal actor_acted(actor: Object, action: String, targets: Array, results: Array)
+signal actor_damaged(target: Object, amount: int, is_crit: bool)
+signal actor_healed(target: Object, amount: int)
+signal actor_died(actor: Object)
 signal battle_ended(victory: bool, exp_gained: int)
 signal ui_state_changed(state: int)
 
@@ -23,12 +23,13 @@ enum State {
 }
 
 const BattleFormula = preload("res://scripts/systems/battle_formula.gd")
+const ActorScript = preload("res://scripts/systems/actor.gd")
 
 var state: int = State.INTRO
-var party: Array[Actor] = []
-var enemies: Array[Actor] = []
-var turn_queue: Array[Actor] = []
-var current_actor: Actor = null
+var party: Array = []
+var enemies: Array = []
+var turn_queue: Array = []
+var current_actor: Object = null
 var turn_index: int = 0
 var total_exp_gained: int = 0
 
@@ -40,13 +41,13 @@ func setup(party_data: Array, enemy_ids: Array) -> void:
 	_skills_cache = _load_json("res://data/skills.json")
 	_enemies_cache = _load_json("res://data/enemies.json")
 	for pd in party_data:
-		var a = Actor.new(pd)
+		var a = ActorScript.new(pd)
 		a.is_player = true
 		party.append(a)
 	for eid in enemy_ids:
 		var ed = _enemies_cache.get(eid, {})
 		if not ed.is_empty():
-			enemies.append(Actor.new(ed))
+			enemies.append(ActorScript.new(ed))
 
 func _load_json(path: String) -> Dictionary:
 	if not FileAccess.file_exists(path):
@@ -68,11 +69,11 @@ func start_battle() -> void:
 
 func _build_turn_queue() -> void:
 	turn_queue.clear()
-	var all: Array[Actor] = []
+	var all: Array = []
 	all.append_array(party)
 	all.append_array(enemies)
 	# 按 agi 降序排，速度相同时按 agi_total
-	all.sort_custom(func(a: Actor, b: Actor): return a.agi_total() > b.agi_total())
+	all.sort_custom(func(a: Object, b: Object): return a.agi_total() > b.agi_total())
 	turn_queue = all
 	turn_index = 0
 
@@ -93,7 +94,7 @@ func _next_turn() -> void:
 	turn_started.emit(current_actor)
 	ui_state_changed.emit(state)
 
-func _any_alive_in(group: Array[Actor]) -> bool:
+func _any_alive_in(group: Array) -> bool:
 	for a in group:
 		if a.is_alive:
 			return true
@@ -120,7 +121,7 @@ func player_action(skill_id: String, target_idx: int) -> void:
 	if actor.mp < skill.get("mp_cost", 0):
 		return
 	# 选目标
-	var targets: Array[Actor] = []
+	var targets: Array = []
 	match skill.get("target", ""):
 		"single_enemy":
 			if target_idx >= 0 and target_idx < enemies.size():
@@ -172,7 +173,7 @@ func enemy_act() -> void:
 	if actor.mp >= skill.get("mp_cost", 0):
 		actor.mp -= skill.get("mp_cost", 0)
 		# 选目标
-		var targets: Array[Actor] = []
+		var targets: Array = []
 		match skill.get("target", ""):
 			"single_enemy":
 				for p in party:
@@ -210,7 +211,7 @@ func _end_turn() -> void:
 	_next_turn()
 
 ## 实际执行技能
-func _execute_skill(actor: Actor, skill: Dictionary, targets: Array[Actor]) -> Array:
+func _execute_skill(actor: Object, skill: Dictionary, targets: Array) -> Array:
 	var results: Array = []
 	var hits := int(skill.get("hits", 1))
 	for target in targets:

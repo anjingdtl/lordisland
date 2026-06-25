@@ -10,10 +10,12 @@ extends RefCounted
 ##   start_battle - 开始战斗
 ##   give_item - 给物品
 
-var event_system: EventSystem
+const DialogueParserScript = preload("res://scripts/systems/dialogue_parser.gd")
+
+var event_system: RefCounted
 var party_manager: Object
 
-func _init(es: EventSystem, party_mgr: Object = null) -> void:
+func _init(es: RefCounted, party_mgr: Object = null) -> void:
 	event_system = es
 	party_manager = party_mgr
 
@@ -67,7 +69,7 @@ func _give_item(item_id: String, count: int) -> void:
 
 func _start_dialogue(dialogue_id: String) -> void:
 	# 立即创建 DialogueUI（不等待完成）
-	var parser = DialogueParser.load_from_file("res://data/dialogues/%s.json" % dialogue_id)
+	var parser = DialogueParserScript.load_from_file("res://data/dialogues/%s.json" % dialogue_id)
 	if parser.id == "":
 		return
 	var ml = Engine.get_main_loop()
@@ -84,7 +86,7 @@ func _start_dialogue(dialogue_id: String) -> void:
 	ui.start_dialogue(parser)
 
 func _show_dialogue(dialogue_id: String, parent: Node) -> void:
-	var parser = DialogueParser.load_from_file("res://data/dialogues/%s.json" % dialogue_id)
+	var parser = DialogueParserScript.load_from_file("res://data/dialogues/%s.json" % dialogue_id)
 	if parser.id == "":
 		return
 	var DialogueUIScript = load("res://scripts/ui/dialogue_ui.gd")

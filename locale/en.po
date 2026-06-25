@@ -301,3 +301,24 @@ msgstr "Meet the Companions"
 
 msgid "quest_meet_three_desc"
 msgstr "Slayn: Make friends before adventuring. Talk to Ehto, Tike, and Slayn."
+# === M3+ Settings ===
+msgid "setting_music_volume"
+msgstr "Music Volume"
+
+msgid "setting_sfx_volume"
+msgstr "SFX Volume"
+
+msgid "setting_language"
+msgstr "Language"
+
+msgid "setting_resolution"
+msgstr "Resolution"
+
+msgid "setting_fullscreen"
+msgstr "Fullscreen"
+
+msgid "setting_apply"
+msgstr "Apply"
+
+msgid "setting_close"
+msgstr "Close"
